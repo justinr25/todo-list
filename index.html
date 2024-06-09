@@ -7,16 +7,48 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-        <h1>Todo List:</h1>
+		<section class="todo-section">
+			<h1>Todo List</h1>
 
-        <ul id="todoList"></ul>
+			<form action="">
+				<input class="input-field" type="text" name="todo" autocomplete="off" placeholder="+ Add Task">
+			</form>
 
-        <form action="" autocomplete="off">
-            <input type="text" name="todo" placeholder="+ Add Task">
-			<button type="submit">Add Todo</button>
-			<button type="reset">Reset</button>
-        </form>
+			<div class="todo-list">
+				<!-- task 1 -->
+				<div class="todo">
+					<input type="checkbox" id="task-1">
+					<label for="task-1">
+						<span class="custom-checkbox"></span>
+						<p>Task 1</p>
+					</label>
+				</div>
 
-		<script src="script.js"></script>
+				<!-- task 2 -->
+				<div class="todo">
+					<input type="checkbox" id="task-2">
+					<label for="task-2">
+						<span class="custom-checkbox"></span>
+						<p>Task 2</p>
+					</label>
+				</div>
+				
+				<!-- task 3 -->
+				<div class="todo">
+					<input type="checkbox" id="task-3">
+					<label for="task-3">
+						<span class="custom-checkbox"></span>
+						<p>Task 3</p>
+					</label>
+				</div>
+			</div>
+		</section>
+		
+		<div class="bottom-container">
+			<p><span id="tasks-remaining">0</span> Tasks Remaining</p>
+			<button class="btn" id="clear-button">Clear All</button>
+	</div>
+
+		<!-- <script src="script.js"></script> -->
 	</body>
 </html>

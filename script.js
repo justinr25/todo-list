@@ -13,6 +13,7 @@ const todoData = existingTodos || []
 const renderTodo = (todo) => {
     const li = document.createElement("li")
     li.innerHTML = todo
+	// li.classList.add('todo')
     todoList.appendChild(li)
 }
 
