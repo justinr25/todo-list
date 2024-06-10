@@ -106,7 +106,7 @@ function addTodo(name) {
 // define function that renders the count of remaining tasks
 function renderRemainingTasksCount() {
     const incompleteTaskCount = todoData.filter(todo => !todo.complete).length
-    const taskString = incompleteTaskCount === 1 ? 'task' : 'tasks'
+    const taskString = incompleteTaskCount === 1 ? 'Task' : 'Tasks'
     tasksRemainingElement.innerHTML = `${incompleteTaskCount} ${taskString} Remaining`
 }
 
@@ -117,4 +117,5 @@ function clearElement(element) {
     }
 }
 
+// render existing todos
 render()
