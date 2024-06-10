@@ -23,8 +23,9 @@ body {
                'todo-list'
                'bottom-container';
     row-gap: 10px;
+    max-width: 40%;
     height: 100%;
-    margin: 10px 525px 10px;
+    margin: 10px auto;
     padding: 20px 10px;
     box-sizing: border-box;
     overflow: hidden;
