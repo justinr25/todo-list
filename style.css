@@ -96,14 +96,16 @@ p {
     position: absolute;
 }
 
+[type="checkbox"]:checked + label {
+    opacity: .2;
+}
+
 [type="checkbox"]:checked + label p {
     text-decoration: line-through;
-    opacity: .2;
 }
 
 [type="checkbox"]:checked + label .custom-checkbox {
     background-color: var(--lighter-gray);
-    opacity: .2;
     /* --checked-color: #005a93;
     background-color: var(--checked-color);
     box-shadow: inset 0 0 0 2px var(--light-gray); */
