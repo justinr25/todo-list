@@ -5,8 +5,9 @@
     --dark-gray: #1d1e1e;
     --light-gray: #2a2a2a;
     --lighter-gray: #7b7b7b;
-    --p: 16px/19px var(--font-family);
-    --h1: bold 32px/38px var(--font-family);
+    --p: 16px/120% var(--font-family);
+    --h1: bold 32px/120% var(--font-family);
+    --width: 40vw;
     color: white;
     font: var(--p);
     height: 100%;
@@ -15,16 +16,15 @@
 
 body {
     background-color: var(--dark-gray);
+    height: 100%;
     display: grid;
     grid-template-rows: 2.375rem 2.812rem 1fr 3.688rem;
-    grid-template-columns: 1fr;
     grid-template-areas: 'header'
                'add-task'
                'todo-list'
                'bottom-container';
     row-gap: 10px;
-    max-width: 40%;
-    height: 100%;
+    width: var(--width);
     margin: 10px auto;
     padding: 20px 10px;
     box-sizing: border-box;
@@ -43,6 +43,7 @@ form {
 }
 
 .input-field {
+    font: var(--p);
     width: 100%;
     background-color: var(--light-gray);
     border: none;
@@ -67,7 +68,6 @@ form {
     border-style: solid none;
     transform: scale(1);
     transition: transform 100ms ease-in-out;
-    overflow-x: auto;
 }
 
 .todo label {
@@ -87,10 +87,12 @@ form {
 
 p {
     margin: 0;
+    /* max-width: var(--width); */
+    /* overflow-wrap: break-word; */
 }
 
 .todo:hover, .todo:has(> [type="checkbox"]:focus) {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     background-color: var(--light-gray);
     border-radius: 7px;
 }
