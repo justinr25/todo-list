@@ -8,17 +8,19 @@
 		<script defer src="script.js"></script>
 	</head>
 	<body>
-		<h1>Todo List</h1>
+		<div class="container">
+			<h1>Todo List</h1>
 
-		<form action="" data-new-todo-form>
-			<input class="input-field" type="text" name="todo" autocomplete="off" placeholder="+ Add Task">
-		</form>
+			<form action="" data-new-todo-form>
+				<input class="input-field" type="text" name="todo" autocomplete="off" placeholder="+ Add Task">
+			</form>
 
-		<div class="todo-list" data-todos></div>
-		
-		<div class="bottom-container">
-			<p data-tasks-remaining>0 Tasks Remaining</p>
-			<button class="btn" id="clear-button" data-clear-button>Clear All</button>
+			<div class="todo-list" data-todos></div>
+			
+			<div class="bottom-container">
+				<p data-tasks-remaining>0 Tasks Remaining</p>
+				<button class="btn" id="clear-button" data-clear-button>Clear All</button>
+			</div>
 		</div>
 	</body>
 </html>
