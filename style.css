@@ -5,6 +5,7 @@
     --dark-gray: #1d1e1e;
     --light-gray: #2a2a2a;
     --lighter-gray: #7b7b7b;
+    --divider: #393939;
     --p: 1rem/120% var(--font-family);
     --h1: bold 2rem/120% var(--font-family);
     color: white;
@@ -114,6 +115,8 @@ h1 {
     justify-content: space-between;
     align-items: center;
     color: var(--lighter-gray);
+    border-top: 1px solid var(--divider);
+    padding-top: 0.7em;
 }
 
 .btn {
