@@ -7,7 +7,7 @@
     --lighter-gray: #7b7b7b;
     --divider: #393939;
     --p: 1rem/120% var(--font-family);
-    --h1: bold 2rem/120% var(--font-family);
+    --h1: bold 2.98rem/120% var(--font-family);
     color: white;
     font: var(--p);
     height: 100%;
@@ -33,7 +33,7 @@ body {
 
 h1 {
     font: var(--h1);
-    margin: .4em 0 0
+    margin: 0.5em 0 0.3em;
 }
 
 .input-field {
