@@ -13,10 +13,9 @@
 		<form class="new-todo-form" action="" data-new-todo-form>
 			<input class="input-field" type="text" name="todo" autocomplete="off" placeholder="+ Add Task">
 			<div class="new-todo-container">
-				<input class="add-todo-btn" type="button" name="add-todo" value="Add Task">
-				<!-- TODO: add data-active attribute to priority-dropdown -->
-				<div class="priority-dropdown">
-					<button class="dropdown-btn" data-dropdown-btn data-dropdown-btn-priority="No Priority">
+				<input class="add-todo-btn" type="submit" name="add-todo" value="Add Task">
+				<div class="dropdown" data-dropdown>
+					<button class="dropdown-btn" data-dropdown-btn data-priority="No Priority">
 						<img src="assets/no-priority-flag.png" alt="No Priority Flag">
 						<p>No Priority</p>
 						<img class="dropdown-icon" src="assets/dropdown-icon.png" alt="Dropdown Icon">

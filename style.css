@@ -7,7 +7,8 @@
     --light-gray: #2a2a2a;
     --lighter-gray: #7b7b7b;
     --divider: #393939;
-    --no-priority-color: #638eff;
+    --no-priority-color: #7b7b7b;
+    --low-priority-color: #628eff;
     --medium-priority-color: #ffd600;
     --high-priority-color: #de3232;
     --option-background-color: #363636;
@@ -66,13 +67,13 @@ h1 {
     padding: 0.75rem 1rem;
 }
 
-.new-todo-container .priority-dropdown {
+.new-todo-container .dropdown {
     margin-left: auto;
     position: relative;
     user-select: none;
 }
 
-.priority-dropdown button {
+.dropdown button {
     background-color: var(--option-background-color);
     border-radius: 0.625rem;
     padding: 0.75rem 1rem 0.75rem 1.25rem;
@@ -83,7 +84,7 @@ h1 {
     min-width: 13rem;
 }
 
-.priority-dropdown button p {
+.dropdown button p {
     margin: 0;
 }
 
@@ -92,11 +93,11 @@ h1 {
     transition: transform 100ms ease-in-out;
 }
 
-.priority-dropdown[data-active] .dropdown-btn .dropdown-icon {
+.dropdown[data-active] .dropdown-btn .dropdown-icon {
     transform: rotate(180deg);
 }
 
-.priority-dropdown .dropdown-content {
+.dropdown .dropdown-content {
     position: absolute;
     border-radius: 0.625rem;
     overflow: hidden;
@@ -107,7 +108,7 @@ h1 {
     transition: all 150ms ease-in-out;
 }
 
-.priority-dropdown[data-active] .dropdown-content  {
+.dropdown[data-active] .dropdown-content  {
     opacity: 1;
     top: calc(100% + 0.5rem);
     pointer-events: auto;
@@ -147,7 +148,7 @@ h1 {
     align-items: center;
 }
 
-.custom-checkbox {
+.todo .custom-checkbox {
     flex-shrink: 0;
     --size: .80em;
     display: inline-block;
@@ -156,6 +157,22 @@ h1 {
     margin-right: var(--size);
     border: 1px solid var(--lighter-gray);
     border-radius: 3px;
+}
+
+.todo .custom-checkbox.no-priority {
+    border-color: var(--no-priority-color);
+}
+
+.todo .custom-checkbox.low-priority {
+    border-color: var(--low-priority-color);
+}
+
+.todo .custom-checkbox.medium-priority {
+    border-color: var(--medium-priority-color);
+}
+
+.todo .custom-checkbox.high-priority {
+    border-color: var(--high-priority-color);
 }
 
 .todo p {
@@ -178,8 +195,20 @@ h1 {
     text-decoration: line-through;
 }
 
-[type="checkbox"]:checked + label .custom-checkbox {
-    background-color: var(--lighter-gray);
+[type="checkbox"]:checked + label .custom-checkbox.no-priority{
+    background-color: var(--no-priority-color);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox.low-priority{
+    background-color: var(--low-priority-color);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox.medium-priority{
+    background-color: var(--medium-priority-color);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox.high-priority{
+    background-color: var(--high-priority-color);
 }
 
 .bottom-container {
@@ -190,7 +219,7 @@ h1 {
     align-items: center;
     color: var(--lighter-gray);
     border-top: 1px solid var(--divider);
-    padding-top: 0.7em;
+    padding: 0.5em 0;
 }
 
 .btn {

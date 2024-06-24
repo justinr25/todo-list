@@ -4,6 +4,10 @@ const newTodoInput = document.querySelector('[name=todo]')
 const todosContainer = document.querySelector('[data-todos]')
 const tasksRemainingElement = document.querySelector('[data-tasks-remaining]')
 const clearButton = document.querySelector('[data-clear-button]')
+const dropdown = document.querySelector('[data-dropdown]')
+const dropdownBtn = document.querySelector('[data-dropdown-btn]')
+const dropdownContent = document.querySelector('[data-dropdown-content]')
+const optionBtns = document.querySelectorAll('[data-option-btn]')
 
 // define globals
 const LOCAL_STORAGE_LIST_KEY = 'task.list'
@@ -40,7 +44,7 @@ const renderTodo = (todo) => {
     // </div>
 
     const todoDiv = document.createElement('div')
-    todoDiv.className = 'todo'
+    todoDiv.classList.add('todo')
 
     const tempCheckbox = document.createElement('input')
     tempCheckbox.type = 'checkbox'
@@ -51,7 +55,8 @@ const renderTodo = (todo) => {
     todoLabel.setAttribute('for', todo.id)
 
     const customCheckbox = document.createElement('span')
-    customCheckbox.className = 'custom-checkbox'
+    customCheckbox.classList.add('custom-checkbox')
+    customCheckbox.classList.add(todo.priority.split(' ').join('-').toLowerCase())
 
     const todoName = document.createElement('p')
     todoName.innerHTML = todo.name
@@ -86,30 +91,68 @@ const saveAndRender = () => {
 }
 
 // define function that creates a todo
-const createTodo = (name) => {
-    return {id: Date.now().toString(), name: name, complete: false}
+const createTodo = (name, priority) => {
+    return {
+        id: Date.now().toString(),
+        name: name,
+        priority: priority,
+        complete: false
+    }
 }
-// const createTodo = (name, priority) => {
-//     return {id: Date.now().toString(), name: name, priority: priority, complete: false}
-// }
 
 // define function that adds todos to the todo list array
-const addTodo = (name) => {
-    newTodo = createTodo(name)
+const addTodo = (name, priority) => {
+    newTodo = createTodo(name, priority)
     todoData.push(newTodo)
 }
+
+// handle dropdown button being clicked
+dropdownBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    if (dropdown.hasAttribute('data-active')) {
+        delete dropdown.dataset.active
+    }
+    else {
+        dropdown.dataset.active = ''
+    }
+})
+
+// handle option buttons being clicked
+optionBtns.forEach((optionBtn) => {
+    optionBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        // change dropdown button based on priority selected
+        const priority = optionBtn.dataset.priority
+        const priorityFlag = priorityFlags[priority]
+        dropdownBtn.querySelector('img').setAttribute('src', priorityFlag)
+        dropdownBtn.querySelector('img').setAttribute('alt', priority + ' Flag')
+        dropdownBtn.querySelector('p').innerHTML = priority
+        dropdownBtn.dataset.priority = priority
+
+        delete dropdown.dataset.active
+    })
+})
+
+// handle dropdown menu being clicked off of
+addEventListener('click', (e) => {
+    if (!e.target.hasAttribute('data-dropdown-btn')) {
+        delete dropdown.dataset.active
+    }
+})
 
 // handle new task event
 newTodoForm.addEventListener('submit', e => {
     e.preventDefault()
     newTodoName = newTodoInput.value
     if (newTodoName == null || newTodoName == '') return
-    addTodo(newTodoName)
+    const priority = dropdownBtn.dataset.priority
+    addTodo(newTodoName, priority)
     newTodoInput.value = null
     saveAndRender()
 })
 
-// handle checking off task event
+// handle checking on/off task event
 todosContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'input') {
         const selectedTask = todoData.find(todo => todo.id === e.target.id)
