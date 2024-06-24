@@ -2,20 +2,22 @@
 
 :root {
     --font-family: 'Roboto', sans-serif;
+    /* ! FIX VARIABLE NAMES */
     --dark-gray: #1d1e1e;
     --light-gray: #2a2a2a;
     --lighter-gray: #7b7b7b;
     --divider: #393939;
-    --p: 1rem/120% var(--font-family);
-    --h1: bold 2.98rem/120% var(--font-family);
+    --p-font: 1rem/120% var(--font-family);
+    --h1-font: bold 2.98rem/120% var(--font-family);
     color: white;
-    font: var(--p);
+    font: var(--p-font);
     height: 100%;
     margin: 0;
 }
 
 body {
     background-color: var(--dark-gray);
+    /* ! FIX OVERFLOW */
     height: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -32,12 +34,12 @@ body {
 }
 
 h1 {
-    font: var(--h1);
+    font: var(--h1-font);
     margin: 0.5em 0 0.3em;
 }
 
 .input-field {
-    font: var(--p);
+    font: var(--p-font);
     width: 100%;
     background-color: var(--light-gray);
     border: none;
