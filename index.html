@@ -8,19 +8,47 @@
 		<script defer src="script.js"></script>
 	</head>
 	<body>
-		<div class="container">
-			<h1>Todo List</h1>
+		<h1>Todo List</h1>
 
-			<form action="" data-new-todo-form>
-				<input class="input-field" type="text" name="todo" autocomplete="off" placeholder="+ Add Task">
-			</form>
-
-			<div class="todo-list" data-todos></div>
+		<form class="new-todo-form" action="" data-new-todo-form>
+			<input class="input-field" type="text" name="todo" autocomplete="off" placeholder="+ Add Task">
+			<div class="new-todo-container">
+				<input class="add-todo-btn" type="button" name="add-todo" value="Add Task">
+				<!-- TODO: add data-active attribute to priority-dropdown -->
+				<div class="priority-dropdown">
+					<button class="dropdown-btn" data-dropdown-btn data-dropdown-btn-priority="No Priority">
+						<img src="assets/no-priority-flag.png" alt="No Priority Flag">
+						<p>No Priority</p>
+						<img class="dropdown-icon" src="assets/dropdown-icon.png" alt="Dropdown Icon">
+					</button>
 			
-			<div class="bottom-container">
-				<p data-tasks-remaining>0 Tasks Remaining</p>
-				<button class="btn" id="clear-button" data-clear-button>Clear All</button>
+					<div class="dropdown-content" data-dropdown-content>
+					   <button class="option-btn" data-option-btn data-priority="No Priority">
+							<img src="assets/no-priority-flag.png" alt="No Priority Flag">
+							<p>No Priority</p>
+					   </button> 
+					   <button class="option-btn" data-option-btn data-priority="Low Priority">
+							<img src="assets/low-priority-flag.png" alt="Low Priority Flag">
+							<p>Low Priority</p>
+					   </button> 
+					   <button class="option-btn" data-option-btn data-priority="Medium Priority">
+							<img src="assets/medium-priority-flag.png" alt="Medium Priority Flag">
+							<p>Medium Priority</p>
+					   </button> 
+					   <button class="option-btn" data-option-btn data-priority="High Priority">
+							<img src="assets/high-priority-flag.png" alt="High Priority Flag">
+							<p>High Priority</p>
+					   </button> 
+					</div>
+				</div>
 			</div>
+		</form>
+
+		<div class="todo-list" data-todos></div>
+		
+		<div class="bottom-container">
+			<p data-tasks-remaining>0 Tasks Remaining</p>
+			<button class="btn" id="clear-button" data-clear-button>Clear All</button>
 		</div>
 	</body>
 </html>

@@ -2,35 +2,33 @@
 
 :root {
     --font-family: 'Roboto', sans-serif;
-    /* ! FIX VARIABLE NAMES */
-    --dark-gray: #1d1e1e;
+    --bg-color: #1d1e1e;
+    --accent-color: #8100D0;
     --light-gray: #2a2a2a;
     --lighter-gray: #7b7b7b;
     --divider: #393939;
+    --no-priority-color: #638eff;
+    --medium-priority-color: #ffd600;
+    --high-priority-color: #de3232;
+    --option-background-color: #363636;
+    --option-hover-color: #595959;
     --p-font: 1rem/120% var(--font-family);
     --h1-font: bold 2.98rem/120% var(--font-family);
+    --btn-font: bold 0.875rem/120% var(--font-family);
+
     color: white;
     font: var(--p-font);
-    height: 100%;
-    margin: 0;
 }
 
 body {
-    background-color: var(--dark-gray);
-    /* ! FIX OVERFLOW */
-    height: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.container {
+    background-color: var(--bg-color);
+    height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: .625em;
     max-width: 40%;
-    height: 98%;
     margin-inline: auto;
-    padding: 0;
 }
 
 h1 {
@@ -38,15 +36,89 @@ h1 {
     margin: 0.5em 0 0.3em;
 }
 
-.input-field {
+.new-todo-form .input-field {
     font: var(--p-font);
-    width: 100%;
+    width: calc(100% - 1rem);
     background-color: var(--light-gray);
     border: none;
     border-radius: 7px;
     height: 2.8rem;
-    padding: 0px 10px;
+    padding: 0 0 0 1rem;
     color: white;
+}
+
+.new-todo-container {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0 0.5rem;
+}
+
+.new-todo-container .add-todo-btn, .new-todo-container button {
+    font: var(--btn-font);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.new-todo-container .add-todo-btn {
+    background-color: var(--accent-color);
+    border-radius: 0.44rem;
+    padding: 0.75rem 1rem;
+}
+
+.new-todo-container .priority-dropdown {
+    margin-left: auto;
+    position: relative;
+    user-select: none;
+}
+
+.priority-dropdown button {
+    background-color: var(--option-background-color);
+    border-radius: 0.625rem;
+    padding: 0.75rem 1rem 0.75rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 13rem;
+}
+
+.priority-dropdown button p {
+    margin: 0;
+}
+
+.dropdown-btn .dropdown-icon {
+    margin-left: auto;
+    transition: transform 100ms ease-in-out;
+}
+
+.priority-dropdown[data-active] .dropdown-btn .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.priority-dropdown .dropdown-content {
+    position: absolute;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.2);
+    top: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 150ms ease-in-out;
+}
+
+.priority-dropdown[data-active] .dropdown-content  {
+    opacity: 1;
+    top: calc(100% + 0.5rem);
+    pointer-events: auto;
+}
+
+.dropdown-content .option-btn {
+    border-radius: 0;
+}
+
+.dropdown-content .option-btn:hover {
+    background-color: var(--option-hover-color);
 }
 
 .todo-list {
