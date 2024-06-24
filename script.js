@@ -106,14 +106,28 @@ const addTodo = (name, priority) => {
     todoData.push(newTodo)
 }
 
-// handle dropdown button being clicked
-dropdownBtn.addEventListener('click', (e) => {
-    e.preventDefault()
+// define function to toggle dropdown menu
+const toggleDropdown = () => {
     if (dropdown.hasAttribute('data-active')) {
+        console.log('delete 1')
         delete dropdown.dataset.active
     }
     else {
+        console.log('hi')
         dropdown.dataset.active = ''
+    }
+}
+
+// handle dropdown button being clicked
+dropdownBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    toggleDropdown()
+})
+
+// handle dropdown menu being clicked off of
+addEventListener('click', (e) => {
+    if (!e.target.closest('[data-dropdown-btn]')) {
+        delete dropdown.dataset.active
     }
 })
 
@@ -132,13 +146,6 @@ optionBtns.forEach((optionBtn) => {
 
         delete dropdown.dataset.active
     })
-})
-
-// handle dropdown menu being clicked off of
-addEventListener('click', (e) => {
-    if (!e.target.hasAttribute('data-dropdown-btn')) {
-        delete dropdown.dataset.active
-    }
 })
 
 // handle new task event
