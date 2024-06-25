@@ -16,6 +16,7 @@
     --p-font: 1rem/120% var(--font-family);
     --h1-font: bold 2.98rem/120% var(--font-family);
     --btn-font: bold 0.875rem/120% var(--font-family);
+    --date-font: 300 .875rem/120% var(--font-family);
 
     color: white;
     font: var(--p-font);
@@ -87,6 +88,7 @@ h1 {
     cursor: pointer;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
 .due-date [type="date"]::-webkit-calendar-picker-indicator {
@@ -103,6 +105,16 @@ h1 {
 
 .due-date .due-date-icon {
     padding: 0.5rem 0.75rem;
+}
+
+.due-date p {
+    font-weight: bold;
+}
+
+.due-date span {
+    padding-left: 0.5rem;
+    opacity: 0.5;
+    font: var(--date-font)
 }
 
 .new-todo-container .dropdown {
@@ -212,10 +224,15 @@ h1 {
 }
 
 .todo p {
-    flex-grow: 1;
     margin: 0;
     max-width: calc(100% - 2em);
     overflow-wrap: break-word;
+}
+
+.todo .due-date-text {
+    margin-left: auto;
+    opacity: 0.5;
+    font: var(--date-font)
 }
 
 [type="checkbox"] {

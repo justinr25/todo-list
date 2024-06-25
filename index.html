@@ -12,37 +12,40 @@
 
 		<form class="new-todo-form" action="" data-new-todo-form>
 			<input class="input-field" type="text" name="todo" autocomplete="off" placeholder="+ Add Task">
+
 			<div class="new-todo-container">
 				<input class="add-todo-btn" type="submit" name="add-todo" value="Add Task">
-				<div class="due-date">
-					<input type="date" id="due-date-btn" name="due-date-btn">
+
+				<div class="due-date" data-due-date-btn>
+					<input type="date" id="due-date-btn" name="due-date-btn" data-due-date-calendar>
 					<label for="due-date-btn">
 						<img class="due-date-icon" src="./assets/calendar-1.png" alt="Calendar Icon">
-						<p>Due Date</p>
+						<p>Due Date:<span due-date-text>Today</span></p>
 					</label>
 				</div>
+
 				<div class="dropdown" data-dropdown>
 					<button class="dropdown-btn" data-dropdown-btn data-priority="No Priority">
-						<img src="assets/no-priority-flag.png" alt="No Priority Flag">
+						<img src="./assets/no-priority-flag.png" alt="No Priority Flag">
 						<p>No Priority</p>
-						<img class="dropdown-icon" src="assets/dropdown-icon.png" alt="Dropdown Icon">
+						<img class="dropdown-icon" src="./assets/dropdown-icon.png" alt="Dropdown Icon">
 					</button>
 			
 					<div class="dropdown-content" data-dropdown-content>
 					   <button class="option-btn" data-option-btn data-priority="No Priority">
-							<img src="assets/no-priority-flag.png" alt="No Priority Flag">
+							<img src="./assets/no-priority-flag.png" alt="No Priority Flag">
 							<p>No Priority</p>
 					   </button> 
 					   <button class="option-btn" data-option-btn data-priority="Low Priority">
-							<img src="assets/low-priority-flag.png" alt="Low Priority Flag">
+							<img src="./assets/low-priority-flag.png" alt="Low Priority Flag">
 							<p>Low Priority</p>
 					   </button> 
 					   <button class="option-btn" data-option-btn data-priority="Medium Priority">
-							<img src="assets/medium-priority-flag.png" alt="Medium Priority Flag">
+							<img src="./assets/medium-priority-flag.png" alt="Medium Priority Flag">
 							<p>Medium Priority</p>
 					   </button> 
 					   <button class="option-btn" data-option-btn data-priority="High Priority">
-							<img src="assets/high-priority-flag.png" alt="High Priority Flag">
+							<img src="./assets/high-priority-flag.png" alt="High Priority Flag">
 							<p>High Priority</p>
 					   </button> 
 					</div>
