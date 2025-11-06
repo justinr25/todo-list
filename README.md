@@ -2,7 +2,7 @@
 A responsive web-based todo list application that allows users to add tasks, set priorities and due dates, and saves all entries to local storage.
 
 ## Demo  
-![Demo of Sudoku Solver](assets/todo-list-demo.gif)
+![Demo of Todo List](assets/todo-list-demo.gif)
 
 ## Usage  
 1. Visit the [GitHub Pages link](https://justinr25.github.io/todo-list/) or open `index.html` in your browser.  
